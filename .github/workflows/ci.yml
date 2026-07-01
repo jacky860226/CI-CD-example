@@ -1,0 +1,34 @@
+name: NTHU Advanced C++ CI
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 檢查專案程式碼
+      uses: actions/checkout@v4
+
+    - name: 安裝建置工具與相依庫
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake libtbb-dev
+
+    - name: 設定 CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+    - name: 編譯專案
+      run: cmake --build build --config Release
+
+    - name: 執行 GoogleTest 單元測試
+      run: |
+        cd build
+        ./test_app

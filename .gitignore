@@ -1,0 +1,36 @@
+# CMake build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/compile_commands.json
+/CTestTestfile.cmake
+/Testing/
+/install_manifest.txt
+/*.cmake
+
+# Build artifacts
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.dll
+*.exe
+*.so
+*.dylib
+*.a
+*.lib
+*.pdb
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.cache/
+*.swp
+*.swo
+*~
